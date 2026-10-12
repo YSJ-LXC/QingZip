@@ -1,0 +1,21 @@
+# Generated application and test outputs
+bin/
+obj/
+work/
+dist/
+**/*.exe
+**/*.pdb
+**/*.partial-*
+last-crash.txt
+**/last-crash.txt
+*.error.txt
+__pycache__/
+.vs/
+*.user
+*.suo
+
+# Local settings and credentials
+.env
+.env.*
+.codexbridge/
+*.token

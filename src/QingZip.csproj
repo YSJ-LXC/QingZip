@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)' == ''">Release</Configuration>
+    <Platform Condition="'$(Platform)' == ''">AnyCPU</Platform>
+    <ProjectGuid>{D5E044A1-2D3B-4EF9-918D-9D2E2D38A846}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>QingZip</RootNamespace>
+    <AssemblyName>QingZip</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <OutputPath>..\bin\</OutputPath>
+    <Optimize>true</Optimize>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <AppConfig>QingZip.exe.config</AppConfig>
+    <LangVersion>5</LangVersion>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System"/><Reference Include="System.Core"/>
+    <Reference Include="System.Windows.Forms"/><Reference Include="System.IO.Compression"/>
+    <Reference Include="System.IO.Compression.FileSystem"/><Reference Include="System.Xaml"/>
+    <Reference Include="WindowsBase"/><Reference Include="PresentationCore"/><Reference Include="PresentationFramework"/>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ArchiveEngine.cs"/><Compile Include="Main.cs"/><Compile Include="AssemblyInfo.cs"/>
+    <EmbeddedResource Include="MainView.xaml"><LogicalName>QingZip.MainView.xaml</LogicalName></EmbeddedResource>
+    <None Include="app.manifest"/><None Include="QingZip.exe.config"/>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
+</Project>

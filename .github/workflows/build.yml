@@ -1,0 +1,37 @@
+name: Windows build and tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Build application
+        shell: cmd
+        run: BUILD.cmd
+      - name: Verify ZIP engine
+        shell: cmd
+        run: tests\RUN_TESTS.cmd
+      - name: Verify UI and task operations
+        shell: cmd
+        run: tests\RUN_UI_TESTS.cmd
+      - name: Upload compiled application
+        uses: actions/upload-artifact@v7
+        with:
+          name: QingZip-windows
+          path: |
+            bin/QingZip.exe
+            bin/QingZip.exe.config
+          if-no-files-found: error
+          retention-days: 14
